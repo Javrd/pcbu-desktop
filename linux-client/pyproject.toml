@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcbu-client"
+version = "1.0.0"
+description = "Linux companion client for pcbu-desktop (PC Bio Unlock) — pairs and auto-unlocks over the LAN."
+requires-python = ">=3.8"
+dependencies = [
+    "cryptography>=41.0",
+]
+
+[project.scripts]
+pcbu-client = "pcbu_client.cli:main"
+
+[tool.setuptools]
+packages = ["pcbu_client"]

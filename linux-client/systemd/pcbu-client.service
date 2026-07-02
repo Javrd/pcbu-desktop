@@ -1,0 +1,22 @@
+[Unit]
+Description=PC Bio Unlock companion client (auto-unlock daemon)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/pcbu-client daemon
+Restart=on-failure
+RestartSec=5
+User=root
+Environment=PCBU_CLIENT_HOME=/etc/pcbu-client
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/etc/pcbu-client
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
